@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class Player{
 
     /*
-     * git add -all
+     * git add --all
      * git commit -m "comment"
      * git push --all
      */
@@ -42,22 +42,34 @@ public class Player{
 
     public boolean isLetterUsed(String l)
     {
-        return letters.get(l);
+        return letters.get(l.toUpperCase());
     }
 
-    public void addLetter(String[] l)
+    public void addLife()
+    {
+        lives++;
+    }
+
+    public void loseLife()
+    {
+        lives--;
+        if (lives == 0)
+            isAlive = false;
+    }
+
+    public void addLetters(String[] l)
     {
         for(int i = 0; i < l.length; i++) //adds all of the letters
-            if (!letters.get(l[i]))
+            if (!letters.get(l[i].toUpperCase()))
                 letters.replace(l[i].toUpperCase(), true);      
 
 
         for (char a = 'A'; a <= 'Z'; a++) //checks if there are any missing letters
-            if (!letters.get(a))
+            if (!letters.get(String.valueOf(a)))
                 return;
         
-        lives++;// if there aren't any missing letters, increase lives and reset all of the letters
+        addLife();// if there aren't any missing letters, increase lives and reset all of the letters
         for (char a = 'A'; a <= 'Z'; a++)
-            letters.replace(l[a].toUpperCase(), false);
+            letters.replace(String.valueOf(a).toUpperCase(), false);
     }
 }
