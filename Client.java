@@ -4,7 +4,27 @@ public class Client {
     
     public static void main(String[] args)
     {
-    System.out.println("Bomb party copy 1.0, made for single player\n\n");
+
+        final String ANSI_RESET = "\u001B[0m";
+        final String ANSI_BLACK = "\u001B[30m";
+        final String ANSI_RED = "\u001B[31m";
+        final String ANSI_GREEN = "\u001B[32m";
+        final String ANSI_YELLOW = "\u001B[33m";
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_PURPLE = "\u001B[35m";
+        final String ANSI_CYAN = "\u001B[36m";
+        final String ANSI_WHITE = "\u001B[37m";
+
+    
+    System.out.println("/n/nBomb party copy " + ANSI_CYAN + "1.0" + ANSI_RESET + ", made for single player");
+    System.out.println("Loading in dictionary...");
+    long startTime = System.currentTimeMillis();
+
+    
+    System.out.println("Dictionary loaded in " + ANSI_GREEN + (System.currentTimeMillis() - startTime)/1000 + ANSI_RESET + " seconds");
+
+
+
 
     Scanner input = new Scanner(System.in);
     Player p1;
